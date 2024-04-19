@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+	
+	<bean id="add" class="com.capgemini.model.Address" scope="singleton">
+		<!-- property uses setter method to set the value -->
+		<property name="addressId" value="10"/>
+		<property name="city" value="Mumbai"/>
+		<property name="state" value="MH"/>
+		<property name="pin" value="400706"/>
+	</bean>
+	<bean id="student" class="com.capgemini.model.Student" scope="singleton">
+		<property name="studentId" value="1001"/>
+		<property name="studentName" value="Makarand"/>
+		<property name="studentScore" value="60"/>
+		<!-- name attribute refer to field name in the class -->
+		<!-- ref attribute refer to bean id (address bean) -->
+		<property name="address" ref="add" />
+	</bean>
+</beans>
